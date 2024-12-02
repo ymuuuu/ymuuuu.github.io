@@ -1,13 +1,13 @@
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-color: #121212;
-    color: #ffffffc3;
+    background-color: #000000; /* Black background */
+    color: #00ff00; /* Green text */
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: rgba(30, 30, 30, 0); /* Fully transparent */
+    background-color: rgba(0, 0, 0, 0); /* Fully transparent */
     padding: 1px 0;
     text-align: center;
 }
@@ -23,15 +23,15 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #a1016c;
+    color: #00ff00; /* Green links */
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
-    font-size:x-large;
+    font-size: x-large;
 }
 
 nav ul li a:hover {
-    color: #ff6600;
+    color: #00cc00; /* Lighter green on hover */
 }
 
 main {
@@ -40,7 +40,7 @@ main {
 }
 
 footer {
-    background-color: rgba(30, 30, 30, 0); /* Fully transparent */
+    background-color: rgba(0, 0, 0, 0); /* Fully transparent */
     text-align: center;
     padding: 1px 0;
     position: fixed;
@@ -49,13 +49,14 @@ footer {
 }
 
 h1 {
-    font-size: 6em;
+    font-size: 40px;
     margin-bottom: 1px;
+    color: #00ff00; /* Green heading */
 }
 
 p {
     font-size: 1.2em;
-    color: #a1016c;
+    color: #00ff00; /* Green paragraph text */
 }
 
 .notes-container {
@@ -69,13 +70,12 @@ p {
 
 .note-card {
     display: block;
-    background-color: #1e1e1e;
+    background-color: #1e1e1e; /* Dark gray background */
     border-radius: 10px;
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
     text-decoration: none;
-    
 }
 
 .note-card:hover {
@@ -90,20 +90,22 @@ p {
 .note-card h4 {
     margin-top: 1rem;
     font-size: 1.5em;
-    color: #a1016c;
+    color: #00ff00; /* Green heading */
 }
 
 .note-card p {
     margin-top: 0.5rem;
     font-size: 1em;
+    color: #00ff00; /* Green text */
 }
 
 .note-card .date {
     text-align: right;
     margin-top: 1rem;
     font-size: 0.9em;
-    color: #888;
+    color: #888; /* Gray date text */
 }
+
 .content--canvas {
     position: fixed;
     top: 0;
