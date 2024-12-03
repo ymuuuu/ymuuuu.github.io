@@ -57,15 +57,16 @@ h1 {
 p {
     font-size: 1.2em;
     color: #00ff00; /* Green paragraph text */
+    margin-bottom: 1rem; /* Adjust this value to reduce space */
 }
 
 .notes-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
+    gap: 2rem;
     max-width: 90rem;
     margin: 5rem auto;
-    padding: 2rem;
+    padding: 20px;
 }
 
 .note-card {

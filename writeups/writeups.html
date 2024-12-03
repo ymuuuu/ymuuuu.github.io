@@ -6,6 +6,11 @@
     <title>Writeups</title>
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../styles.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -14,12 +19,16 @@
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../notes/notes.html">Notes</a></li>
                 <li><a href="writeups.html">Writeups</a></li>
+                <li><a href="https://github.com/ymuuuu">whoami</a></li>
+
             </ul>
         </nav>
     </header>
     <main>
         <section id="writeups">
-            <h1>Writeups</h1>
+            <h1 id="typed-title"></h1>
+            <p id="typed-description"></p>
+
             <div class="notes-container">
                 <a href="note1.html" class="note-card">
                     <img src="../images/nagi.png" alt="Note Image">
@@ -52,6 +61,41 @@
     <script src="../js/util.js"></script>
     <script src="../js/noise.min.js"></script> 
     <script src="../js/swirl.js"></script>
-    <script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+    <script>
+        document.documentElement.className = "js";
+        var supportsCssVars = function() {
+            var e, t = document.createElement("style");
+            return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e
+        };
+        supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
+
+        // Typing animation
+        const texts = [
+            "Writeups",
+            "Read my detailed writeups on various topics."
+        ];
+        const typedTitleElement = document.getElementById('typed-title');
+        const typedDescriptionElement = document.getElementById('typed-description');
+        let i = 0;
+        let j = 0;
+        let currentElement = typedTitleElement;
+
+        function type() {
+            if (i < texts[j].length) {
+                currentElement.innerHTML += texts[j].charAt(i);
+                i++;
+                setTimeout(type, 100); // Adjust the typing speed here
+            } else {
+                if (j < texts.length - 1) {
+                    j++;
+                    i = 0;
+                    currentElement = typedDescriptionElement;
+                    type();
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', type);
+    </script>
 </body>
 </html>

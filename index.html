@@ -6,6 +6,11 @@
     <title>Mu;men</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -14,22 +19,66 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="notes/notes.html">Notes</a></li>
                 <li><a href="writeups/writeups.html">Writeups</a></li>
+                <li><a href="https://github.com/ymuuuu">whoami</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section id="home">
-            <h1>require(fs).readFileSync('/flag.txt', 'utf8');</h1>
-            <p>cHduM2R7YXl6X2F0Z3d6fQ==</p>
+            <h1 id="typed-text"></h1>
+            <p id="execute-text"></p>
+            <p id="encoded-text" class="hidden">cHduM2R7SV93YW5uYV9tYXJyeV9zZXR0bGVfYW5kX2VhdF9wYXN0YV9hdF9pdGFseX0=
+            </p>
             <div class="content--canvas"></div> 
         </section>
     </main>
     <footer>
-        <p>a newbie penetration tester | ymuu </p>
+        <p>Moamen Yasser | noob af security student | ymuu</p>
     </footer>
     <script src="js/util.js"></script>
     <script src="js/noise.min.js"></script> 
     <script src="js/swirl.js"></script>
-    <script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+    <script>
+        document.documentElement.className = "js";
+        var supportsCssVars = function() {
+            var e, t = document.createElement("style");
+            return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e
+        };
+        supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
+
+        // Typing animation
+        const texts = [
+            "require(fs).readFileSync('/flag.txt', 'utf8');",
+            "Click here to execute"
+        ];
+        const typedTextElement = document.getElementById('typed-text');
+        const executeTextElement = document.getElementById('execute-text');
+        let i = 0;
+        let j = 0;
+        let currentElement = typedTextElement;
+
+        function type() {
+            if (i < texts[j].length) {
+                currentElement.innerHTML += texts[j].charAt(i);
+                i++;
+                setTimeout(type, 100); // Adjust the typing speed here
+            } else {
+                if (j < texts.length - 1) {
+                    j++;
+                    i = 0;
+                    currentElement = executeTextElement;
+                    type();
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', type);
+
+        // Show encoded text on click
+        executeTextElement.addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('encoded-text').classList.remove('hidden');
+        });
+    </script>
 </body>
 </html>
