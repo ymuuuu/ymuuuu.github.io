@@ -6,9 +6,78 @@
     <title>Mu;men</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         .hidden {
             display: none;
+        }
+
+        .blurry-box {
+            background: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+            backdrop-filter: blur(2px); /* Apply blur effect */
+            border-radius: 10px;
+            padding: 8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin: 2rem auto;
+            max-width: 40rem;
+        }
+
+        .blurry-box img {
+            width: 15rem;
+            height: 15rem;
+            border-radius: 50%;
+            border: 3px solid #ffffff; /* Green border */
+        }
+
+        .blurry-box .bio {
+            max-width: 20rem;
+            color: #ecff1b; /* Green text */
+        }
+
+        .blurry-box .bio h2 {
+            font-size: 2em;
+            margin-bottom: 1rem;
+        }
+
+        .blurry-box .bio p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            letter-spacing: .02rem;
+            color: #ffffff;
+        }
+
+        .blurry-box .bio .social-links {
+            display: flex;
+            justify-content: center; /* Center the icons horizontally */
+            align-items: center; /* Center the icons vertically */
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            margin-left: 1rem; /* Shift the icons to the right */
+        }
+
+        .blurry-box .bio .social-links a {
+            margin-right: 1rem;
+            color: #ecff1b; /* Green links */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .blurry-box .bio .social-links a:hover {
+            color: #00cc00; /* Lighter green on hover */
+        }
+
+        @media (max-width: 700px) {
+            .blurry-box {
+                flex-direction: column;
+            }
+
+            .blurry-box .bio {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -20,6 +89,7 @@
                 <li><a href="notes/notes.html">Notes</a></li>
                 <li><a href="writeups/writeups.html">Writeups</a></li>
                 <li><a href="https://github.com/ymuuuu">whoami</a></li>
+                <li><a href="sECreT.html">sEcREt</a></li>
             </ul>
         </nav>
     </header>
@@ -27,10 +97,23 @@
         <section id="home">
             <h1 id="typed-text"></h1>
             <p id="execute-text"></p>
-            <p id="encoded-text" class="hidden">cHduM2R7SV93YW5uYV9tYXJyeV9zZXR0bGVfYW5kX2VhdF9wYXN0YV9hdF9pdGFseX0=
-            </p>
             <div class="content--canvas"></div> 
         </section>
+
+        <!-- Blurry Box with Bio and Social Links -->
+        <div class="blurry-box">
+            <img src="https://avatars.githubusercontent.com/u/168992349?v=4" alt="Your Avatar">
+            <div class="bio">
+                <h2 id="bio-heading"></h2>
+                <p id="bio-text"></p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/ymuu" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/ymuuuu" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://facebook.com/muumenx" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://discord.com/ymuu_" target="_blank"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
         <p>Moamen Yasser | noob af security student | ymuu</p>
@@ -46,39 +129,33 @@
         };
         supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
 
-        // Typing animation
-        const texts = [
-            "require(fs).readFileSync('/flag.txt', 'utf8');",
-            "Click here to execute"
+        // Typing animation for the bio
+        const bioTexts = [
+            "Moamen Yasser",
+            "A noob computer guy on the internet who hates computers"
         ];
-        const typedTextElement = document.getElementById('typed-text');
-        const executeTextElement = document.getElementById('execute-text');
-        let i = 0;
-        let j = 0;
-        let currentElement = typedTextElement;
+        const bioHeadingElement = document.getElementById('bio-heading');
+        const bioTextElement = document.getElementById('bio-text');
+        let bioI = 0;
+        let bioJ = 0;
+        let bioCurrentElement = bioHeadingElement;
 
-        function type() {
-            if (i < texts[j].length) {
-                currentElement.innerHTML += texts[j].charAt(i);
-                i++;
-                setTimeout(type, 100); // Adjust the typing speed here
+        function typeBio() {
+            if (bioI < bioTexts[bioJ].length) {
+                bioCurrentElement.innerHTML += bioTexts[bioJ].charAt(bioI);
+                bioI++;
+                setTimeout(typeBio, 50); // Adjust the typing speed here
             } else {
-                if (j < texts.length - 1) {
-                    j++;
-                    i = 0;
-                    currentElement = executeTextElement;
-                    type();
+                if (bioJ < bioTexts.length - 1) {
+                    bioJ++;
+                    bioI = 0;
+                    bioCurrentElement = bioTextElement;
+                    typeBio();
                 }
             }
         }
 
-        document.addEventListener('DOMContentLoaded', type);
-
-        // Show encoded text on click
-        executeTextElement.addEventListener('click', function(event) {
-            event.preventDefault();
-            document.getElementById('encoded-text').classList.remove('hidden');
-        });
+        document.addEventListener('DOMContentLoaded', typeBio);
     </script>
 </body>
 </html>

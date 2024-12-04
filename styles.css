@@ -12,6 +12,7 @@ header {
     text-align: center;
 }
 
+
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -23,7 +24,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #00ff00; /* Green links */
+    color: #ecff1b; /* Green links */
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
@@ -31,7 +32,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #00cc00; /* Lighter green on hover */
+    color: #ffffff; /* Lighter green on hover */
 }
 
 main {
@@ -51,12 +52,12 @@ footer {
 h1 {
     font-size: 40px;
     margin-bottom: 1px;
-    color: #00ff00; /* Green heading */
+    color: #ffffff; /* Green heading */
 }
 
 p {
     font-size: 1.2em;
-    color: #00ff00; /* Green paragraph text */
+    color: #ecff1b; /* Green paragraph text */
     margin-bottom: 1rem; /* Adjust this value to reduce space */
 }
 
@@ -91,13 +92,13 @@ p {
 .note-card h4 {
     margin-top: 1rem;
     font-size: 1.5em;
-    color: #00ff00; /* Green heading */
+    color: #ecff1b; /* Green heading */
 }
 
 .note-card p {
     margin-top: 0.5rem;
     font-size: 1em;
-    color: #00ff00; /* Green text */
+    color: #ffffff; /* Green text */
 }
 
 .note-card .date {
