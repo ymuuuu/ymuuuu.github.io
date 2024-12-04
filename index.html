@@ -8,71 +8,90 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        :root {
+            --blur-strength: 2px;
+            --blur-bg-color: rgba(0, 0, 0, 0.5);
+            --blur-padding: 1rem;
+            --blur-max-width: 70rem;
+            --blur-border-radius: 1px;
+            --blur-gap: 3rem;
+            --blur-text-color: #ffffff;
+            --blur-link-color: #ecff1b;
+            --blur-link-hover-color: #ffffff;
+        }
+
         .hidden {
             display: none;
         }
 
         .blurry-box {
-            background: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
-            backdrop-filter: blur(2px); /* Apply blur effect */
-            border-radius: 10px;
-            padding: 8rem;
+            background: var(--blur-bg-color);
+            backdrop-filter: blur(var(--blur-strength));
+            border-radius: var(--blur-border-radius);
+            padding: var(--blur-padding);
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 3rem;
+            gap: var(--blur-gap);
             margin: 2rem auto;
-            max-width: 40rem;
+            max-width: var(--blur-max-width);
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .blurry-box img {
-            width: 15rem;
-            height: 15rem;
+            width: 20rem;
+            height: 20rem;
             border-radius: 50%;
-            border: 3px solid #ffffff; /* Green border */
+            border: 3px solid #ffffff;
         }
 
         .blurry-box .bio {
             max-width: 20rem;
-            color: #ecff1b; /* Green text */
+            color: var(--blur-link-color);
         }
 
         .blurry-box .bio h2 {
-            font-size: 2em;
+            font-size: 2.5em;
             margin-bottom: 1rem;
         }
 
         .blurry-box .bio p {
-            font-size: 1.2em;
+            font-size: 1.5em;
             line-height: 1.5;
             letter-spacing: .02rem;
-            color: #ffffff;
+            color: var(--blur-text-color);
         }
 
         .blurry-box .bio .social-links {
             display: flex;
-            justify-content: center; /* Center the icons horizontally */
-            align-items: center; /* Center the icons vertically */
+            justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
             margin-top: 1rem;
-            margin-left: 1rem; /* Shift the icons to the right */
+            margin-left: 1rem;
         }
 
         .blurry-box .bio .social-links a {
             margin-right: 1rem;
-            color: #ecff1b; /* Green links */
+            color: var(--blur-link-color);
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
         }
 
         .blurry-box .bio .social-links a:hover {
-            color: #00cc00; /* Lighter green on hover */
+            color: var(--blur-link-hover-color);
         }
 
         @media (max-width: 700px) {
             .blurry-box {
                 flex-direction: column;
+                padding: 4rem;
             }
 
             .blurry-box .bio {
@@ -131,7 +150,7 @@
 
         // Typing animation for the bio
         const bioTexts = [
-            "Moamen Yasser",
+            "Moamen Yasser Musleh",
             "A noob computer guy on the internet who hates computers"
         ];
         const bioHeadingElement = document.getElementById('bio-heading');
