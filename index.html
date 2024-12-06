@@ -38,9 +38,10 @@
             position: absolute;
             top: 45%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%) translateZ(0); /* Force hardware acceleration */
             width: 100%;
             box-sizing: border-box;
+            will-change: transform; /* Hint to the browser */
         }
 
         .blurry-box img {
@@ -98,6 +99,11 @@
                 max-width: 100%;
             }
         }
+
+        canvas {
+            transform: translateZ(0); /* Force hardware acceleration */
+            will-change: transform; /* Hint to the browser */
+        }
     </style>
 </head>
 <body>
@@ -121,7 +127,7 @@
 
         <!-- Blurry Box with Bio and Social Links -->
         <div class="blurry-box">
-            <img src="images/video.png" alt="Your Avatar">
+            <img src="images/video.gif" alt="Your Avatar">
             <div class="bio">
                 <h2 id="bio-heading"></h2>
                 <p id="bio-text"></p>

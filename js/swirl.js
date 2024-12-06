@@ -134,12 +134,16 @@ function createCanvas() {
         a: document.createElement('canvas'),
         b: document.createElement('canvas')
     };
+    canvas.a.style.transform = 'translateZ(0)'; // Force hardware acceleration
+    canvas.a.style.willChange = 'transform'; // Hint to the browser
     canvas.b.style = `
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+        transform: translateZ(0); /* Force hardware acceleration */
+        will-change: transform; /* Hint to the browser */
     `;
     container.appendChild(canvas.b);
     ctx = {
