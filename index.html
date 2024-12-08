@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mu;men</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -108,18 +109,23 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="notes/index.html">Notes</a></li>
-                <li><a href="writeups/index.html">Writeups</a></li>
-                <li><a href="https://github.com/ymuuuu">whoami</a></li>
-                <li><a href="sECreT.html">sEcREt</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="notes/index.html">Notes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="writeups/index.html">Writeups</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/ymuuuu">whoami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sECreT.html">sEcREt</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
-    <main>
-        <section id="home">
+    <main class="container">
+        <section id="home" class="text-center">
             <h1 id="typed-text"></h1>
             <p id="execute-text"></p>
             <div class="content--canvas"></div> 
@@ -140,9 +146,12 @@
             </div>
         </div>
     </main>
-    <footer>
+    <footer class="text-center bg-transparent">
         <p>Moamen Yasser | noob af security student | ymuu</p>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/util.js"></script>
     <script src="js/noise.min.js"></script> 
     <script src="js/swirl.js"></script>
