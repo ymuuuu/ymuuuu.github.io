@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mu;men</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Add this CSS directly in the head section */
+        #writeups {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .blurry-box {
+            width: 100%; /* Adjust as needed */
+            max-width: 1200px; /* Adjust as needed */
+            padding: 20px;
+            background-color: rgba(62, 62, 62, 0.6); /* Semi-transparent white background */
+            backdrop-filter: blur(10px); /* Blur effect */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Optional: Add a shadow for depth */
+        }
+
+        .blurry-box h2 {
+            margin-top: 0;
+            font-size: 2em;
+            color: #ecff1b;
+        }
+
+        .blurry-box p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #ffffff;
+        }
+
+        .blurry-box img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        /* Console-like box styling */
+        .console-box {
+            background-color: #2d2d2d;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .console-header {
+            background-color: #4d4d4d;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .console-header span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .console-header span.red {
+            background-color: #ff5f56;
+        }
+
+        .console-header span.yellow {
+            background-color: #ffbd2e;
+        }
+
+        .console-header span.green {
+            background-color: #27c93f;
+        }
+
+        .console-body {
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #ffffff;
+            overflow-x: auto;
+            text-align: left; /* Align text to the left */
+        }
+
+        .console-body pre {
+            margin: 0;
+        }
+
+        .console-body code {
+            display: block;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../notes/index.html">Notes</a></li>
+                <li><a href="../writeups/index.html">Writeups</a></li>
+                <li><a href="https://github.com/ymuuuu">whoami</a></li>
+                <li><a href="../sECreT.html">sEcREt</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+         <section id="home"> <!--important for running animation -->
+            <h1 id="typed-text"></h1>
+            <p id="execute-text"></p>
+            <div class="content--canvas"></div> 
+        </section>
+        
+        <!-- New Section for Writeups -->
+        <section id="writeups">
+            <div class="blurry-box">
+                <h2>Android Emulator Setup</h2>
+                <p><strong>( بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ )</strong></p>
+                <h2>Intro</h2>
+                <p>Recently, I've been exploring Android hacking and testing. While it's been quite enjoyable, I've faced challenges with setting up the environment—specifically with emulators.</p>
+                <p>I've experimented with several emulators, and here's my honest feedback:</p>
+                <ol>
+                    <li>Genymotion → extremely buggy</li>
+                    <li>NOX → reminiscent of Bluestacks (if you know what I mean)</li>
+                    <li>VM with x86 Image → lacks user-friendliness</li>
+                    <li>Android Studio → requires excessive computing power</li>
+                </ol>
+                <h2>Issue and Resolution</h2>
+                <p>While each emulator has its share of bugs and issues, Android Studio proved to be the most reliable. However, the main drawback was needing to launch the entire IDE just to run the emulator. I wondered if there was a way to run the Android Emulator (Android Device Manager) without launching the full IDE and consuming unnecessary resources. After seeing this capability on Linux and MacOS, I decided to explore the possibility for Windows.</p>
+                <p>This is exactly what I'll guide you through today.</p>
+                <h2>Why Android Studio?</h2>
+                <p>It's the most comprehensive emulator available for penetration testing needs. It offers numerous APIs and diverse image types, including both rooted and non-rooted versions, with or without GApps, and supports various mobile screen sizes.</p>
+                <h2>Steps</h2>
+                <h3>NOTE: If you already have Android Studio installed, please skip to the IMPORTANT PART</h3>
+                <p>First, we need to install Android Studio → 
+                    <button onclick="window.open('https://developer.android.com/studio', '_blank')">
+                        <span>LINK</span>
+                    </button>
+                </p>
+                <p>After installation, open Android Studio and navigate to the Device Manager</p>
+                <p>Find it in the top-left menu: Tools → Device Manager</p>
+                <figure class="image"><a href="../images/notes/android_emulator_setup/image.png"><img style="width:708px" src="../images/notes/android_emulator_setup/image.png"/></a></figure>
+                <p>As you can see, I've set up several devices, mostly Nexus 6. Why? This device offers root options with minimal issues, though without GApps. For CTFs, you won't really need GApps, but for real penetration testing scenarios, you definitely will.</p>
+                <p>Now click the Plus Icon and select "Create Virtual Machine"</p>
+                <figure class="image"><a href="../images/notes/android_emulator_setup/image%201.png"><img style="width:189px" src="../images/notes/android_emulator_setup/image%201.png"/></a></figure>
+                <p>Here type nexus 6 and click next</p>
+                <figure class="image"><a href="../images/notes/android_emulator_setup/image%202.png"><img style="width:707.984375px" src="../images/notes/android_emulator_setup/image%202.png"/></a></figure>
+                <p>Here you'll see a variety of options to choose from. Select whichever API you want to test on, including AOSP and GApps</p>
+                <figure class="image"><a href="../images/notes/android_emulator_setup/image%203.png"><img style="width:707.984375px" src="../images/notes/android_emulator_setup/image%203.png"/></a></figure>
+                <p>After downloading and selecting your preferred option, click Next</p>
+                <h2>IMPORTANT PART</h2>
+                <p>Here comes an important part: When selecting the name, avoid using any spaces to make it easier to use later. Make sure to copy this name.</p>
+                <figure class="image"><a href="../images/notes/android_emulator_setup/image%204.png"><img style="width:542px" src="../images/notes/android_emulator_setup/image%204.png"/></a></figure>
+                <p>Next, scroll down and uncheck "Enable device frame".</p>
+                <figure class="image"><a href="../images/notes/android_emulator_setup/image%205.png"><img style="width:532px" src="../images/notes/android_emulator_setup/image%205.png"/></a></figure>
+                <p>If you click on Advanced Settings, you'll see the system hardware configuration. If you're not familiar with these settings, it's best to leave them as they are. Click Finish when you're done.</p>
+                <p>Now that you have your emulator set up, note that the AVD manager is <strong>MOSTLY</strong> installed in this directory</p>
+                <div class="console-box">
+                    <div class="console-header">
+                        <span class="red"></span>
+                        <span class="yellow"></span>
+                        <span class="green"></span>
+                    </div>
+                    <div class="console-body">
+                        <pre><code>C:\Users\%USERPROFILE%\AppData\Local\Android\Sdk\emulator\</code></pre>
+                    </div>
+                </div>
+                <p>To run the emulator, use:</p>
+                <div class="console-box">
+                    <div class="console-header">
+                        <span class="red"></span>
+                        <span class="yellow"></span>
+                        <span class="green"></span>
+                    </div>
+                    <div class="console-body">
+                        <pre><code>C:\Users\%USERPROFILE%\AppData\Local\Android\Sdk\emulator\emulator</code></pre>
+                    </div>
+                </div>
+                <p>To launch a specific emulator in PowerShell (without quotes), use:</p>
+                <div class="console-box">
+                    <div class="console-header">
+                        <span class="red"></span>
+                        <span class="yellow"></span>
+                        <span class="green"></span>
+                    </div>
+                    <div class="console-body">
+                        <pre><code>C:\Users\%USERPROFILE%\AppData\Local\Android\Sdk\emulator\emulator -avd "nameofAVD"</code></pre>
+                    </div>
+                </div>
+                <p>Simply enter this command in a PowerShell terminal to start the emulator without running Android Studio.</p>
+                <p>For convenience, you can save these commands for different APIs in a <code>.bat</code> file like this:</p>
+                <figure class="image"><a href="../images/notes/android_emulator_setup/image%206.png"><img style="width:177px" src="../images/notes/android_emulator_setup/image%206.png"/></a></figure>
+                <p>Happy APK Hacking</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Moamen Yasser | noob af security student | ymuu</p>
+    </footer>
+    <script src="../js/util.js"></script>
+    <script src="../js/noise.min.js"></script> 
+    <script src="../js/swirl.js"></script>
+    <script>
+        document.documentElement.className = "js";
+        var supportsCssVars = function() {
+            var e, t = document.createElement("style");
+            return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e
+        };
+        supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
+    </script>
+</body>
+</html>
